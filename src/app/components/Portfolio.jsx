@@ -82,8 +82,7 @@ export default function Portfolio() {
           Start your project →
         </a>
       </div>
- 
-</section>
+      </section>
   );
 }
  

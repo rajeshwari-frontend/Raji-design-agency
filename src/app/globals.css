@@ -1,99 +1,4 @@
-.navbar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          right: 0;
-          z-index: 100;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 1.2rem 6vw;
-          transition: background 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
-        }
-        .navbar-scrolled {
-          background: rgba(13, 0, 22, 0.88);
-          backdrop-filter: blur(16px);
-          box-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
-        }
-        .nav-brand {
-          font-family: "Playfair Display", Georgia, serif;
-          font-size: 1.3rem;
-          font-weight: 700;
-          color: #fff;
-          display: flex;
-          align-items: center;
-          gap: 0.4rem;
-          text-decoration: none;
-        }
-        .brand-icon {
-          color: #b06aff;
-          font-size: 1rem;
-        }
-        .nav-links {
-          display: flex;
-          align-items: center;
-          gap: 2rem;
-        }
-        .nav-link {
-          font-family: "DM Sans", sans-serif;
-          font-size: 0.88rem;
-          font-weight: 500;
-          color: rgba(220, 200, 255, 0.75);
-          text-decoration: none;
-          transition: color 0.2s;
-        }
-        .nav-link:hover { color: #fff; }
-        .nav-cta {
-          font-family: "DM Sans", sans-serif;
-          font-size: 0.85rem;
-          font-weight: 600;
-          color: #fff;
-          background: linear-gradient(135deg, #9c27b0, #7b1fa2);
-          padding: 0.55rem 1.4rem;
-          border-radius: 999px;
-          text-decoration: none;
-          transition: box-shadow 0.2s;
-        }
-        .nav-cta:hover { box-shadow: 0 4px 16px rgba(140, 50, 200, 0.5); }
-        .hamburger {
-          display: none;
-          flex-direction: column;
-          gap: 5px;
-          background: none;
-          border: none;
-          cursor: pointer;
-          padding: 4px;
-        }
-        .bar {
-          display: block;
-          width: 22px;
-          height: 2px;
-          background: rgba(220, 200, 255, 0.8);
-          border-radius: 2px;
-          transition: all 0.3s;
-        }
-        @media (max-width: 768px) {
-          .hamburger { display: flex; }
-          .nav-links {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background: rgba(13, 0, 22, 0.97);
-            backdrop-filter: blur(20px);
-            flex-direction: column;
-            padding: 2rem 6vw;
-            gap: 1.5rem;
-            border-bottom: 1px solid rgba(160, 60, 220, 0.2);
-          }
-          .nav-links.open { display: flex; }
-          .nav-cta { align-self: flex-start; }
-          .bar-open:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-          .bar-hide { opacity: 0; }
-          .bar-open:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-        }
-      .hero {
+.hero {
           position: relative;
           min-height: 100vh;
           background: linear-gradient(135deg, #0d0016 0%, #1a0030 50%, #2d0050 100%);
@@ -296,9 +201,21 @@
           0%, 100% { box-shadow: 0 0 80px rgba(140,40,220,0.5); }
           50%       { box-shadow: 0 0 120px rgba(180,60,255,0.7); }
         }
-        .portfolio {
-          background: linear-gradient(180deg, #0d0016 0%, #1a0030 100%);
+        .services {
+          position: relative;
+          background: #fff;
           padding: 7rem 6vw;
+          overflow: hidden;
+        }
+        .services-bg-shape {
+          position: absolute;
+          top: -200px;
+          right: -200px;
+          width: 600px;
+          height: 600px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(160, 60, 220, 0.07) 0%, transparent 70%);
+          pointer-events: none;
         }
         .section-header {
           max-width: 560px;
@@ -310,7 +227,7 @@
           font-family: "DM Mono", monospace;
           font-size: 0.78rem;
           letter-spacing: 0.14em;
-          color: #b06aff;
+          color: #9c27b0;
           margin-bottom: 1rem;
           text-transform: uppercase;
         }
@@ -318,143 +235,90 @@
           font-family: "Playfair Display", Georgia, serif;
           font-size: clamp(2rem, 3.5vw, 3rem);
           font-weight: 700;
-          color: #fff;
+          color: #1a0030;
           line-height: 1.15;
           margin: 0 0 1rem;
         }
         .accent {
-          background: linear-gradient(90deg, #b06aff, #e040fb);
+          background: linear-gradient(90deg, #9c27b0, #ce93d8);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         .section-sub {
           font-family: "DM Sans", sans-serif;
-          color: rgba(200, 170, 255, 0.65);
+          color: #6b6b80;
           font-size: 1.05rem;
           line-height: 1.6;
         }
-        .portfolio-grid {
+        .services-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
           gap: 1.5rem;
           max-width: 1200px;
           margin: 0 auto;
         }
-        .project-card {
+        .service-card {
           position: relative;
+          background: #faf7ff;
+          border: 1px solid rgba(160, 60, 220, 0.12);
           border-radius: 20px;
+          padding: 2.2rem 2rem;
           overflow: hidden;
-          aspect-ratio: 4/3;
-          cursor: pointer;
-          border: 1px solid rgba(160, 80, 255, 0.2);
-          transition: transform 0.35s ease, box-shadow 0.35s ease;
+          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+          cursor: default;
         }
-        .project-card:hover {
-          transform: scale(1.03);
-          box-shadow: 0 20px 60px rgba(100, 20, 180, 0.45);
+        .service-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 16px 48px rgba(120, 40, 180, 0.14);
+          border-color: rgba(160, 60, 220, 0.3);
         }
-        .project-thumb {
+        .service-card:hover .card-hover-line {
+          width: 100%;
+        }
+        .card-hover-line {
           position: absolute;
-          inset: 0;
-          background: var(--bg);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
+          bottom: 0;
+          left: 0;
+          height: 3px;
+          width: 0;
+          background: linear-gradient(90deg, var(--accent), #e040fb);
+          transition: width 0.4s ease;
+          border-radius: 0 0 0 0;
         }
-        .thumb-shape {
-          font-size: 5rem;
-          color: rgba(255, 255, 255, 0.15);
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          line-height: 1;
+        .card-icon {
+          font-size: 2rem;
+          color: var(--accent);
+          margin-bottom: 1.2rem;
+          display: block;
         }
-        .thumb-grid {
-          position: absolute;
-          inset: 0;
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          grid-template-rows: repeat(3, 1fr);
-          padding: 2rem;
-          gap: 1rem;
-          opacity: 0.12;
-        }
-        .grid-dot {
-          border-radius: 50%;
-          background: white;
-          width: 6px;
-          height: 6px;
-          margin: auto;
-        }
-        .project-overlay {
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(to top, rgba(10, 0, 22, 0.92) 0%, transparent 55%);
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          padding: 1.6rem;
-          opacity: 0;
-          transition: opacity 0.3s ease;
-        }
-        .project-card:hover .project-overlay {
-          opacity: 1;
-        }
-        .project-category {
-          font-family: "DM Mono", monospace;
-          font-size: 0.7rem;
-          letter-spacing: 0.12em;
-          color: #ce93d8;
-          text-transform: uppercase;
-          margin-bottom: 0.3rem;
-        }
-        .project-title {
+        .card-title {
           font-family: "Playfair Display", serif;
-          font-size: 1.4rem;
+          font-size: 1.3rem;
           font-weight: 700;
-          color: #fff;
+          color: #1a0030;
           margin: 0 0 0.8rem;
         }
-        .project-btn {
-          display: inline-flex;
-          align-items: center;
-          background: rgba(160, 60, 220, 0.3);
-          border: 1px solid rgba(180, 100, 255, 0.4);
-          color: #e0b0ff;
+        .card-desc {
           font-family: "DM Sans", sans-serif;
-          font-size: 0.82rem;
-          font-weight: 600;
-          padding: 0.4rem 1rem;
+          font-size: 0.93rem;
+          color: #5a5a6e;
+          line-height: 1.65;
+          margin: 0 0 1.4rem;
+        }
+        .card-tags {
+          display: flex;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+        }
+        .tag {
+          font-family: "DM Mono", monospace;
+          font-size: 0.7rem;
+          padding: 0.25rem 0.7rem;
           border-radius: 999px;
-          cursor: pointer;
-          width: fit-content;
-          transition: background 0.2s;
-        }
-        .project-btn:hover {
-          background: rgba(160, 60, 220, 0.55);
-        }
-        .portfolio-cta {
-          text-align: center;
-          margin-top: 3.5rem;
-        }
-        .btn-outline {
-          font-family: "DM Sans", sans-serif;
-          font-size: 0.95rem;
-          font-weight: 600;
-          color: #c98fff;
-          border: 1px solid rgba(160, 80, 255, 0.4);
-          padding: 0.85rem 2.2rem;
-          border-radius: 999px;
-          text-decoration: none;
-          transition: all 0.25s ease;
-          display: inline-block;
-        }
-        .btn-outline:hover {
-          background: rgba(160, 80, 255, 0.12);
-          border-color: rgba(160, 80, 255, 0.7);
+          background: rgba(160, 60, 220, 0.1);
+          color: #9c27b0;
+          letter-spacing: 0.05em;
         }
         .contact {
           position: relative;
@@ -699,22 +563,105 @@
           text-decoration: none;
           transition: opacity 0.2s;
         }
-        .footer-links a:hover { opacity: 0.7; }
-        .services {
-          position: relative;
-          background: #fff;
-          padding: 7rem 6vw;
-          overflow: hidden;
+      
+      .navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 100;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1.2rem 6vw;
+          transition: background 0.3s, backdrop-filter 0.3s, box-shadow 0.3s;
         }
-        .services-bg-shape {
-          position: absolute;
-          top: -200px;
-          right: -200px;
-          width: 600px;
-          height: 600px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(160, 60, 220, 0.07) 0%, transparent 70%);
-          pointer-events: none;
+        .navbar-scrolled {
+          background: rgba(13, 0, 22, 0.88);
+          backdrop-filter: blur(16px);
+          box-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+        }
+        .nav-brand {
+          font-family: "Playfair Display", Georgia, serif;
+          font-size: 1.3rem;
+          font-weight: 700;
+          color: #fff;
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+          text-decoration: none;
+        }
+        .brand-icon {
+          color: #b06aff;
+          font-size: 1rem;
+        }
+        .nav-links {
+          display: flex;
+          align-items: center;
+          gap: 2rem;
+        }
+        .nav-link {
+          font-family: "DM Sans", sans-serif;
+          font-size: 0.88rem;
+          font-weight: 500;
+          color: rgba(220, 200, 255, 0.75);
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+        .nav-link:hover { color: #fff; }
+        .nav-cta {
+          font-family: "DM Sans", sans-serif;
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: #fff;
+          background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+          padding: 0.55rem 1.4rem;
+          border-radius: 999px;
+          text-decoration: none;
+          transition: box-shadow 0.2s;
+        }
+        .nav-cta:hover { box-shadow: 0 4px 16px rgba(140, 50, 200, 0.5); }
+        .hamburger {
+          display: none;
+          flex-direction: column;
+          gap: 5px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 4px;
+        }
+        .bar {
+          display: block;
+          width: 22px;
+          height: 2px;
+          background: rgba(220, 200, 255, 0.8);
+          border-radius: 2px;
+          transition: all 0.3s;
+        }
+        @media (max-width: 768px) {
+          .hamburger { display: flex; }
+          .nav-links {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(13, 0, 22, 0.97);
+            backdrop-filter: blur(20px);
+            flex-direction: column;
+            padding: 2rem 6vw;
+            gap: 1.5rem;
+            border-bottom: 1px solid rgba(160, 60, 220, 0.2);
+          }
+          .nav-links.open { display: flex; }
+          .nav-cta { align-self: flex-start; }
+          .bar-open:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+          .bar-hide { opacity: 0; }
+          .bar-open:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+        }
+        .portfolio {
+          background: linear-gradient(180deg, #0d0016 0%, #1a0030 100%);
+          padding: 7rem 6vw;
         }
         .section-header {
           max-width: 560px;
@@ -726,7 +673,7 @@
           font-family: "DM Mono", monospace;
           font-size: 0.78rem;
           letter-spacing: 0.14em;
-          color: #9c27b0;
+          color: #b06aff;
           margin-bottom: 1rem;
           text-transform: uppercase;
         }
@@ -734,88 +681,146 @@
           font-family: "Playfair Display", Georgia, serif;
           font-size: clamp(2rem, 3.5vw, 3rem);
           font-weight: 700;
-          color: #1a0030;
+          color: #fff;
           line-height: 1.15;
           margin: 0 0 1rem;
         }
         .accent {
-          background: linear-gradient(90deg, #9c27b0, #ce93d8);
+          background: linear-gradient(90deg, #b06aff, #e040fb);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
         }
         .section-sub {
           font-family: "DM Sans", sans-serif;
-          color: #6b6b80;
+          color: rgba(200, 170, 255, 0.65);
           font-size: 1.05rem;
           line-height: 1.6;
         }
-        .services-grid {
+        .portfolio-grid {
           display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
           gap: 1.5rem;
           max-width: 1200px;
           margin: 0 auto;
         }
-        .service-card {
+        .project-card {
           position: relative;
-          background: #faf7ff;
-          border: 1px solid rgba(160, 60, 220, 0.12);
           border-radius: 20px;
-          padding: 2.2rem 2rem;
           overflow: hidden;
-          transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-          cursor: default;
+          aspect-ratio: 4/3;
+          cursor: pointer;
+          border: 1px solid rgba(160, 80, 255, 0.2);
+          transition: transform 0.35s ease, box-shadow 0.35s ease;
         }
-        .service-card:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 16px 48px rgba(120, 40, 180, 0.14);
-          border-color: rgba(160, 60, 220, 0.3);
+        .project-card:hover {
+          transform: scale(1.03);
+          box-shadow: 0 20px 60px rgba(100, 20, 180, 0.45);
         }
-        .service-card:hover .card-hover-line {
-          width: 100%;
-        }
-        .card-hover-line {
+        .project-thumb {
           position: absolute;
-          bottom: 0;
-          left: 0;
-          height: 3px;
-          width: 0;
-          background: linear-gradient(90deg, var(--accent), #e040fb);
-          transition: width 0.4s ease;
-          border-radius: 0 0 0 0;
-        }
-        .card-icon {
-          font-size: 2rem;
-          color: var(--accent);
-          margin-bottom: 1.2rem;
-          display: block;
-        }
-        .card-title {
-          font-family: "Playfair Display", serif;
-          font-size: 1.3rem;
-          font-weight: 700;
-          color: #1a0030;
-          margin: 0 0 0.8rem;
-        }
-        .card-desc {
-          font-family: "DM Sans", sans-serif;
-          font-size: 0.93rem;
-          color: #5a5a6e;
-          line-height: 1.65;
-          margin: 0 0 1.4rem;
-        }
-        .card-tags {
+          inset: 0;
+          background: var(--bg);
           display: flex;
-          gap: 0.5rem;
-          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
         }
-        .tag {
+        .thumb-shape {
+          font-size: 5rem;
+          color: rgba(255, 255, 255, 0.15);
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          line-height: 1;
+        }
+        .thumb-grid {
+          position: absolute;
+          inset: 0;
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          grid-template-rows: repeat(3, 1fr);
+          padding: 2rem;
+          gap: 1rem;
+          opacity: 0.12;
+        }
+        .grid-dot {
+          border-radius: 50%;
+          background: white;
+          width: 6px;
+          height: 6px;
+          margin: auto;
+        }
+        .project-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(to top, rgba(10, 0, 22, 0.92) 0%, transparent 55%);
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          padding: 1.6rem;
+          opacity: 1;
+          transition: opacity 0.3s ease;
+        }
+        @media (hover: hover) and (pointer: fine) {
+          .project-overlay {
+            opacity: 0;
+          }
+          .project-card:hover .project-overlay {
+            opacity: 1;
+          }
+        }
+        .project-category {
           font-family: "DM Mono", monospace;
           font-size: 0.7rem;
-          padding: 0.25rem 0.7rem;
+          letter-spacing: 0.12em;
+          color: #ce93d8;
+          text-transform: uppercase;
+          margin-bottom: 0.3rem;
+        }
+        .project-title {
+          font-family: "Playfair Display", serif;
+          font-size: 1.4rem;
+          font-weight: 700;
+          color: #fff;
+          margin: 0 0 0.8rem;
+        }
+        .project-btn {
+          display: inline-flex;
+          align-items: center;
+          background: rgba(160, 60, 220, 0.3);
+          border: 1px solid rgba(180, 100, 255, 0.4);
+          color: #e0b0ff;
+          font-family: "DM Sans", sans-serif;
+          font-size: 0.82rem;
+          font-weight: 600;
+          padding: 0.4rem 1rem;
           border-radius: 999px;
-          background: rgba(160, 60, 220, 0.1);
-          color: #9c27b0;
-          letter-spacing: 0.05em;
+          cursor: pointer;
+          width: fit-content;
+          transition: background 0.2s;
+        }
+        .project-btn:hover {
+          background: rgba(160, 60, 220, 0.55);
+        }
+        .portfolio-cta {
+          text-align: center;
+          margin-top: 3.5rem;
+        }
+        .btn-outline {
+          font-family: "DM Sans", sans-serif;
+          font-size: 0.95rem;
+          font-weight: 600;
+          color: #c98fff;
+          border: 1px solid rgba(160, 80, 255, 0.4);
+          padding: 0.85rem 2.2rem;
+          border-radius: 999px;
+          text-decoration: none;
+          transition: all 0.25s ease;
+          display: inline-block;
+        }
+        .btn-outline:hover {
+          background: rgba(160, 80, 255, 0.12);
+          border-color: rgba(160, 80, 255, 0.7);
         }
